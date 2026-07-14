@@ -901,50 +901,6 @@ section{ padding: var(--section-pad) 1.5rem; position: relative; }
 }
 
 /* ==========================================================================
-   KEEP IN TOUCH
-   ========================================================================== */
-.contact{ background: var(--bg-1); }
-.contact__grid{
-  max-width: 760px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1.2rem;
-}
-.contact-card{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.6rem;
-  padding: 1.6rem 1.2rem;
-  border-radius: var(--radius-md);
-  border: 1px solid var(--glass-border);
-  background: var(--glass);
-  backdrop-filter: blur(14px);
-  text-decoration: none;
-  color: var(--ink);
-  text-align: center;
-  transition: transform 0.25s var(--ease-soft), border-color 0.25s;
-}
-.contact-card:hover{
-  transform: translateY(-4px);
-  border-color: var(--amber);
-}
-.contact-card__icon{ font-size: 1.6rem; }
-.contact-card__label{
-  font-size: 0.7rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--ink-faint);
-}
-.contact-card__value{
-  font-family: var(--font-display);
-  font-style: italic;
-  font-size: 1.05rem;
-  word-break: break-word;
-}
-
-/* ==========================================================================
    CLOSING
    ========================================================================== */
 .closing{

@@ -28,7 +28,7 @@ const CONFIG = {
   // continuously through the list.
   music: {
     tracks: [
-      { title: "Track One", artist: "Artist Name", src: "music/track-1.mp3" },
+      { title: "See You Again", artist: "Wiz Khalifa", src: "track-1.mp3" },
       { title: "Track Two", artist: "Artist Name", src: "music/track-2.mp3" },
       { title: "Track Three", artist: "Artist Name", src: "music/track-3.mp3" },
     ],
@@ -68,32 +68,20 @@ const CONFIG = {
   // --- Memory wall: seed notes so the board isn't empty on day one --------
   memoryWall: {
     seedEntries: [
-      ,
-    ],
-  },
-
-  // --- Keep in touch: contact / social links --------------------------------
-  contact: {
-    note: "Reach out any time — seriously.",
-    links: [
-      { icon: "✉️", label: "Email", value: "you@example.com", href: "mailto:you@example.com" },
-      { icon: "💼", label: "LinkedIn", value: "/in/yourname", href: "https://linkedin.com/in/yourname" },
-      { icon: "📸", label: "Instagram", value: "@yourname", href: "https://instagram.com/yourname" },
-      { icon: "📱", label: "Phone", value: "+1 (555) 555-5555", href: "tel:+15555555555" },
     ],
   },
 
   // --- Closing section -------------------------------------------------------
   closing: {
     title: "Even if we're apart, the bond we made will never disappear.",
-    message: "Keep in touch — my door (or at least my inbox) is always open.",
+    message: "Thank you for everything — I won't forget it.",
   },
 };
 
 /* ============================================================================
    Below this line: site behavior. Content edits belong in CONFIG above.
    ============================================================================ */
-const SECTION_ORDER = ["hero", "timeline", "cards", "farewell", "wall", "contact", "closing"];
+const SECTION_ORDER = ["hero", "timeline", "cards", "farewell", "wall", "closing"];
 
 document.addEventListener("DOMContentLoaded", () => {
   initLanding();
@@ -109,7 +97,6 @@ document.addEventListener("DOMContentLoaded", () => {
   initFarewellEnvelope();
   initBackgroundMusic();
   initMemoryWall();
-  initContact();
   initClosing();
   initConfettiButton();
 });
@@ -579,33 +566,6 @@ function initMemoryWall() {
   });
 
   renderAll();
-}
-
-/* ---------------------------------------------------------------------------
-   Keep in touch: renders contact cards from CONFIG.contact
-   ------------------------------------------------------------------------- */
-function initContact() {
-  const grid = document.getElementById("contactGrid");
-  const note = document.getElementById("contactNote");
-  if (!grid) return;
-
-  if (note) note.textContent = CONFIG.contact.note || "";
-
-  (CONFIG.contact.links || []).forEach((link) => {
-    const a = document.createElement("a");
-    a.className = "contact-card";
-    a.href = link.href;
-    if (link.href && link.href.startsWith("http")) {
-      a.target = "_blank";
-      a.rel = "noopener noreferrer";
-    }
-    a.innerHTML = `
-      <span class="contact-card__icon" aria-hidden="true">${link.icon || "🔗"}</span>
-      <span class="contact-card__label">${escapeHTML(link.label)}</span>
-      <span class="contact-card__value">${escapeHTML(link.value)}</span>
-    `;
-    grid.appendChild(a);
-  });
 }
 
 /* ---------------------------------------------------------------------------
